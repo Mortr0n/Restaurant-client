@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Router } from '@reach/router';
+import AllRestaurants from './components/AllRestaurants';
+import CreateRestaurant from './components/CreateRestaurant';
+import UpdateRestaurant from './components/UpdateRestaurant';
+import RestaurantDetails from './components/RestaurantDetails';
+import DeleteRestaurant from './components/DeleteRestaurant';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to our Restaurants App</h1>
+      <Router>
+        <AllRestaurants default path="/restaurants" />
+        <CreateRestaurant path="/restaurants/new" />
+        <RestaurantDetails path="/restaurants/:id" />
+        <UpdateRestaurant path="/restaurants/:id/edit" />
+
+      </Router>
+      
     </div>
   );
 }
