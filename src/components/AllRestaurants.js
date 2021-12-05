@@ -17,8 +17,6 @@ const AllRestaurants = (props) => {
             .catch((err) => console.log(err));
     }, []);
 
-
-
     return(
         <div>
             <h2>All Restaurants</h2>
@@ -26,18 +24,14 @@ const AllRestaurants = (props) => {
                 restaurants.map((restaurant, index) => {
                     return(
                         <div key={index}>
-                        <p>Restaurant Name: {restaurant.name}</p>
-                        <p>Restaurant Address : </p>
-                        <p>{restaurant.address} </p>
+                        <p><Link to={`/restaurants/${restaurant._id}`}> {restaurant.name}</Link> </p>
                         <hr/>
                     </div>
                     )
                     
                 })
             }
-
         </div>
-
     )
 }
 
